@@ -1,1 +1,1 @@
-# linked-lists
+The aim of this project is to complete the Linked Lists project on TOP
