@@ -133,8 +133,24 @@ const linkedListFactory = (list) => {
             currentNode.nextNode = newNode
     }
         }
+
+    const removeAt = (index) => {
+        if (index === 0){
+            list.head = list.head.nextNode
+        }
+        else{
+            let currentIndex = 0
+            let currentNode = list.head
+            while (currentIndex < index-1){
+                currentNode = currentNode.nextNode
+                currentIndex++
+            }
+            currentNode.nextNode = currentNode.nextNode.nextNode
+        }
         
-    return {list, append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt};
+    }
+        
+    return {list, append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt, removeAt};
 }
 
 
@@ -160,4 +176,6 @@ list.find(140)
 list.find(32)
 list.toString()
 list.insertAt(27, 3)
+list.toString()
+list.removeAt(3)
 list.toString()
