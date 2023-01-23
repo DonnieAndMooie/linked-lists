@@ -77,7 +77,20 @@ const linkedListFactory = (list) => {
         }
         currentNode.nextNode = null
     }
-    return {list, append, prepend, size, head, tail, at, pop};
+
+    const contains = (value) => {
+        let doesContain = false
+        let currentNode = list.head
+        while (currentNode){
+            if (currentNode.value === value){
+                doesContain = true
+            }
+            currentNode = currentNode.nextNode
+        }
+        console.log(doesContain)
+        return doesContain
+    }
+    return {list, append, prepend, size, head, tail, at, pop, contains};
 }
 
 const nodeFactory = (value, nextNode) => {
@@ -97,3 +110,5 @@ list.tail()
 list.at(3)
 list.pop()
 console.log(list.list)
+list.contains(27)
+list.contains(4)
