@@ -1,7 +1,9 @@
 const linkedListFactory = (list) => {
+    let length = 0
     const append = (value) => {
         if (!list.head){
             list.head = nodeFactory(value, null)
+            length++
         }
         else{
             let currentNode = list.head
@@ -10,20 +12,27 @@ const linkedListFactory = (list) => {
             }
             const newNode = nodeFactory(value, null)
             currentNode.nextNode = newNode
+            length++
         }
     }
     
     const prepend = (value) => {
         if (!list.head){
             list.head = nodeFactory(value, null)
+            length++
         }
         else{
             const newNode = nodeFactory(value, list.head)
             list.head = newNode
+            length++
 
         }
     }
-    return {list, append, prepend};
+
+    const size = () => {
+        console.log("Length is " + length)        
+    }
+    return {list, append, prepend, size};
 }
 
 const nodeFactory = (value, nextNode) => {
@@ -35,5 +44,6 @@ const list = linkedListFactory({})
 list.append(120)
 list.append(140)
 list.prepend(8)
+list.size()
 console.log(list.list)
 
