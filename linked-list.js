@@ -30,18 +30,35 @@ const linkedListFactory = (list) => {
     }
 
     const size = () => {
-        console.log("Length is " + length)        
+        console.log("Length is " + length)
+        return length        
     }
 
     const head = () => {
         if (list.head){
             console.log(list.head)
+            return list.head
         }
         else{
             console.log("There is no head!")
         }
     }
-    return {list, append, prepend, size, head};
+
+    const tail = () => {
+        if (!list.head){
+            console.log("There is no tail!")
+        }
+        else{
+            let currentNode = list.head
+            while (currentNode.nextNode){
+                currentNode = currentNode.nextNode
+            }
+            const tail = currentNode
+            console.log(tail)
+            return tail
+        }
+    }
+    return {list, append, prepend, size, head, tail};
 }
 
 const nodeFactory = (value, nextNode) => {
@@ -55,5 +72,6 @@ list.append(140)
 list.prepend(8)
 list.size()
 list.head()
+list.tail()
 console.log(list.list)
 
