@@ -58,7 +58,16 @@ const linkedListFactory = (list) => {
             return tail
         }
     }
-    return {list, append, prepend, size, head, tail};
+
+    const at = (index) => {
+        let currentNode = list.head
+        for (let i=0; i < index; i++){
+            currentNode = currentNode.nextNode
+        }
+        console.log(currentNode)
+        return currentNode
+    } 
+    return {list, append, prepend, size, head, tail, at};
 }
 
 const nodeFactory = (value, nextNode) => {
@@ -70,8 +79,11 @@ const list = linkedListFactory({})
 list.append(120)
 list.append(140)
 list.prepend(8)
+list.append(4)
+list.append(12)
 list.size()
 list.head()
 list.tail()
+list.at(3)
 console.log(list.list)
 
