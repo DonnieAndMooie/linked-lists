@@ -8,11 +8,22 @@ const linkedListFactory = (list) => {
             while (currentNode.nextNode){
                 currentNode = currentNode.nextNode
             }
-            newNode = nodeFactory(value, null)
+            const newNode = nodeFactory(value, null)
             currentNode.nextNode = newNode
         }
-    } 
-    return {list, append};
+    }
+    
+    const prepend = (value) => {
+        if (!list.head){
+            list.head = nodeFactory(value, null)
+        }
+        else{
+            const newNode = nodeFactory(value, list.head)
+            list.head = newNode
+
+        }
+    }
+    return {list, append, prepend};
 }
 
 const nodeFactory = (value, nextNode) => {
@@ -23,6 +34,6 @@ const nodeFactory = (value, nextNode) => {
 const list = linkedListFactory({})
 list.append(120)
 list.append(140)
-list.append(200)
+list.prepend(8)
 console.log(list.list)
 
