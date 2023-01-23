@@ -90,8 +90,23 @@ const linkedListFactory = (list) => {
         console.log(doesContain)
         return doesContain
     }
-    return {list, append, prepend, size, head, tail, at, pop, contains};
+
+    const find = (value) => {
+        let currentIndex = 0
+        let currentNode = list.head
+        while (currentNode){
+            if (currentNode.value === value){
+                console.log("Index is " + currentIndex)
+                return currentIndex
+            }
+            currentIndex++
+            currentNode = currentNode.nextNode
+        }
+        return null
+    }
+    return {list, append, prepend, size, head, tail, at, pop, contains, find};
 }
+
 
 const nodeFactory = (value, nextNode) => {
     return {value, nextNode};
@@ -109,6 +124,8 @@ list.head()
 list.tail()
 list.at(3)
 list.pop()
-console.log(list.list)
 list.contains(27)
 list.contains(4)
+list.find(140)
+list.find(32)
+console.log(list.list)
