@@ -117,7 +117,24 @@ const linkedListFactory = (list) => {
         console.log(string)
         return string
     }
-    return {list, append, prepend, size, head, tail, at, pop, contains, find, toString};
+
+    const insertAt = (value, index) => {
+        if (index === 0){
+            prepend(value)
+        }
+        else{
+            let currentNode = list.head
+            let currentIndex = 0
+            while(currentIndex < index-1){
+                currentNode = currentNode.nextNode
+                currentIndex++
+            }
+            const newNode = nodeFactory(value, currentNode.nextNode)
+            currentNode.nextNode = newNode
+    }
+        }
+        
+    return {list, append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt};
 }
 
 
@@ -141,4 +158,6 @@ list.contains(27)
 list.contains(4)
 list.find(140)
 list.find(32)
+list.toString()
+list.insertAt(27, 3)
 list.toString()
