@@ -104,7 +104,20 @@ const linkedListFactory = (list) => {
         }
         return null
     }
-    return {list, append, prepend, size, head, tail, at, pop, contains, find};
+
+    const toString = () => {
+        let string = ""
+        let currentNode = list.head
+        while(currentNode){
+            string += currentNode.value
+            string += " => "
+            currentNode = currentNode.nextNode
+        }
+        string += null
+        console.log(string)
+        return string
+    }
+    return {list, append, prepend, size, head, tail, at, pop, contains, find, toString};
 }
 
 
@@ -128,4 +141,4 @@ list.contains(27)
 list.contains(4)
 list.find(140)
 list.find(32)
-console.log(list.list)
+list.toString()
