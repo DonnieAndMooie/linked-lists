@@ -32,7 +32,16 @@ const linkedListFactory = (list) => {
     const size = () => {
         console.log("Length is " + length)        
     }
-    return {list, append, prepend, size};
+
+    const head = () => {
+        if (list.head){
+            console.log(list.head)
+        }
+        else{
+            console.log("There is no head!")
+        }
+    }
+    return {list, append, prepend, size, head};
 }
 
 const nodeFactory = (value, nextNode) => {
@@ -45,5 +54,6 @@ list.append(120)
 list.append(140)
 list.prepend(8)
 list.size()
+list.head()
 console.log(list.list)
 
