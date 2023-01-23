@@ -66,8 +66,18 @@ const linkedListFactory = (list) => {
         }
         console.log(currentNode)
         return currentNode
-    } 
-    return {list, append, prepend, size, head, tail, at};
+    }
+    
+    const pop = () => {
+        let currentNode = list.head
+        let currentIndex = 0
+        while (currentIndex < length-2){
+            currentNode = currentNode.nextNode
+            currentIndex++
+        }
+        currentNode.nextNode = null
+    }
+    return {list, append, prepend, size, head, tail, at, pop};
 }
 
 const nodeFactory = (value, nextNode) => {
@@ -85,5 +95,5 @@ list.size()
 list.head()
 list.tail()
 list.at(3)
+list.pop()
 console.log(list.list)
-
